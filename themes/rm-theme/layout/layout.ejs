@@ -1,0 +1,140 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body onresize="adjustSize()">
+		<canvas class="pinkGlow" id="topMarquess" height="32"></canvas>
+		<div id="topHeader">
+
+			<div class="dropdown">
+				<button class="dropbtn">Stories</button>
+				<div class="dropdown-content">
+					<a href="#">Features</a>
+					<a href="#">Reviews</a>
+					<a href="#">Interviews</a>
+					<a href="#">Premieres</a>
+				</div>
+			</div>
+
+			<button class="headerButton">About</button>
+
+			<img src="img/Logo_3D_800.png" id="largeLogo" class="center">
+
+			<div class="dropdown">
+				<button class="dropbtn">Contact</button>
+				<div class="dropdown-content">
+					<a href="#">Join the Team</a>
+					<a href="#">Submit Music</a>
+					<a href="#">Contact Us</a>
+				</div>
+			</div>
+
+			<button class="headerButton">Shop</button>
+
+		</div>
+		<%- body %>
+	</body>
+
+	<script>
+		let text = "MUSIC IS CALLING. WILL YOU PICK UP?";
+		let canvas = document.querySelector("#topMarquess");
+		let ctx = canvas.getContext("2d");
+		let textSize = ctx.measureText(text).width;
+		let padding = 10;
+		let yOffset = ctx.canvas.height/2 + 4.5;
+		let x = 0;
+		let xInterval = 1;
+
+		let items = [];
+
+		let initItems = () => {
+			let colorCounter = 0;
+			for(let i = 0; i< Math.ceil(window.innerWidth/(textSize+padding)); i++) {
+				if(items.length == 0)
+					items.push({x: 0-(textSize + padding), color: colorCounter});
+				else
+					items.push({x: items[i-1].x + textSize + padding, color: colorCounter});
+				colorCounter++;
+
+				if(colorCounter == 3)
+					colorCounter = 0;
+			}
+		}
+
+		let drawItems = () => {
+			ctx.clearRect(0,0, canvas.width, canvas.height);
+			ctx.fillStyle = "black";
+			ctx.fillRect(0,0, ctx.canvas.width, ctx.canvas.height);
+
+			for(let i = 0; i<items.length; i++){
+				let selectedColor;
+				switch(items[i].color) {
+					case 0:
+						selectedColor = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-yellow");
+						break;
+					case 1:
+						selectedColor = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-green");
+						break;
+					case 2:
+						selectedColor = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-blue");
+						break;
+					default:
+						selectedColor = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-yellow");
+				}
+				ctx.fillStyle = selectedColor;
+				ctx.fillText(text, items[i].x, yOffset);
+			}
+		}
+
+		let updateItems = () => {
+			for (let i = 0; i< items.length; i++){
+				items[i].x += xInterval;
+				if(items[i].x >= window.innerWidth){
+					console.log("outside!");
+					items[i].x = 0-(textSize + padding);
+				}
+			}
+			// adjustSize();
+			drawItems();
+			window.requestAnimationFrame(updateItems);
+		}
+
+		let init = () => {
+			adjustSize();
+			ctx.font = "18px SpaceGrotesk";
+			textSize = ctx.measureText(text).width;
+			console.log("text size: " + textSize);
+			console.log(Math.ceil(window.innerWidth/(textSize+padding)));
+			initItems();
+
+			// ctx.fillText("Test", x,7);
+			// window.requestAnimationFrame(drawMarq);
+			window.requestAnimationFrame(updateItems);
+		}
+
+		let drawMarq = () => {
+			// ctx.clearRect(0,0, canvas.width, canvas.height);
+			// ctx.color = "#000000";
+			ctx.font = "18px SpaceGrotesk";
+
+			ctx.fillStyle = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-blue");
+			ctx.fillText(text, x, yOffset);
+			if(x != ctx.canvas.width)
+				x++;
+			else
+				x = 0;
+			// ctx.canvas.width = window.innerWidth;
+			window.requestAnimationFrame(adjustSize);
+			window.requestAnimationFrame(drawMarq);
+		}
+		let adjustSize = () => {
+			ctx.canvas.width = window.innerWidth;
+		}
+		init();
+
+	</script>
+</html>
+
