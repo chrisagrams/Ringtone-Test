@@ -16,7 +16,7 @@
 
 		<div id="topHeader">
 
-			<div class="dropdown">
+			<div class="dropdown permHeader">
 				<button class="dropbtn">STORIES</button>
 				<div class="dropdown-content">
 					<a href="#">Features</a>
@@ -26,11 +26,11 @@
 				</div>
 			</div>
 
-			<button class="headerButton">ABOUT</button>
+			<button class="headerButton permHeader">ABOUT</button>
 
 			<img src="/img/Logo_3D_800.png" id="largeLogo" class="center">
 
-			<div class="dropdown">
+			<div class="dropdown permHeader">
 				<button class="dropbtn">CONTACT</button>
 				<div class="dropdown-content">
 					<a href="#">Join the Team</a>
@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<button class="headerButton">SHOP</button>
+			<button class="headerButton permHeader">SHOP</button>
 
 		</div>
 
@@ -71,7 +71,9 @@
 
 		</div>
 
-		<%- body %>
+		<div id="bodyDiv">
+			<%- body %>
+		</div>
 
 		<div id="bottomNavbar" class="pinkGlow">
 			<div style="margin-top: 25px; margin-left: 25%;">
