@@ -43,17 +43,7 @@
     width: 100%;
 }
 
-.pinkGlow {
-    box-shadow: 0px 0px 25px 5px var(--rm-main-pink);
-}
 
-.blueGlow {
-    box-shadow: 0px 0px 25px 5px var(--rm-main-blue);
-}
-
-.yellowGlow {
-    box-shadow: 0px 0px 25px 5px var(--rm-main-yellow);
-}
 
 /* Dropdown Button */
 .dropbtn {

@@ -1,0 +1,40 @@
+/* --- glow class definitions --- */
+:root {
+    --glow-offset-x: 0px;
+    --glow-offset-y: 0px;
+    --glow-blur-radius: 10px;
+    --glow-spread-radius: 4px;
+}
+
+.pinkGlow {
+    box-shadow: var(--glow-offset-x)
+                var(--glow-offset-y)
+                var(--glow-blur-radius)
+                var(--glow-spread-radius)
+                var(--rm-main-pink);
+}
+
+.blueGlow {
+    box-shadow: var(--glow-offset-x)
+                var(--glow-offset-y)
+                var(--glow-blur-radius)
+                var(--glow-spread-radius)
+                var(--rm-main-blue);
+}
+
+.yellowGlow {
+    box-shadow: var(--glow-offset-x)
+                var(--glow-offset-y)
+                var(--glow-blur-radius)
+                var(--glow-spread-radius)
+                var(--rm-main-yellow);
+}
+
+.greenGlow {
+    box-shadow: var(--glow-offset-x)
+                var(--glow-offset-y)
+                var(--glow-blur-radius)
+                var(--glow-spread-radius)
+                var(--rm-main-green);
+}
+/* --- end glow class definitions --- */
