@@ -1,25 +1,30 @@
 <% page.posts.each((post) => { %>
-    <div class="card" onclick="location.href='<%- url_for(post.path) %>'">
+    <div class="card
+    <%
+        post.tags.forEach(function (tag) {
+            switch (tag.name){
+                case("REVIEWS"): %>
+                   reviews
+              <%   break;
+                case("FEATURES"): %>
+                    features
+              <%    break;
+                case("INTERVIEWS"): %>
+                    interviews
+              <%    break;
+                case("PREMIERS"): %>
+                    premiers
+              <%    break;
+        %>
+        <% }})
+        %>" onclick="location.href='<%- url_for(post.path) %>'">
         <img src="<%- url_for(post.path) %>0.jpg" style="width:450px; height: 210px">
 
-        <% post.tags.forEach(function (tag) {
-        if(tag.name == "FEATURES") {%>
-                <span style="color: var(--rm-main-yellow)">
-                    <%-tag.name;%>
-                </span>
-        <% } else if(tag.name == "REVIEWS") { %>
-                <span style="color: var(--rm-main-green)">
-                    <%-tag.name;%>
-                </span>
-        <% } else if (tag.name == "INTERVIEWS") { %>
-                <span style="color: var(--rm-main-blue)">
-                    <%-tag.name;%>
-                </span>
-        <% } else if(tag.name = "PREMIERS") { %>
-                <span style="color: var(--rm-main-purple)">
-                    <%-tag.name;%>
-                </span>
-        <% }}) %>
+        <div id="tagArea">
+            <% post.tags.forEach(function (tag) {
+                %> <h3> <%- tag.name %> </h3>
+            <% }) %>
+        </div>
 
         <h1>
                 <%= post.title %>

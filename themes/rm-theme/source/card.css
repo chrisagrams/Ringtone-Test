@@ -14,16 +14,24 @@
     color: var(--rm-main-white);
 }
 
+.card h3 {
+    font-size: 14px;
+    color: var(--rm-main-black);
+    margin: 0;
+}
+
 .post-content-preview{
     font-size: 16px;
     color: var(--rm-main-white);
     margin: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .chin {
-    margin-top: 20px;
+    margin-top: 10px;
     padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: var(--rm-main-blue);
 }
 .chin #author {
     color: var(--rm-main-white);
@@ -40,5 +48,48 @@
 }
 
 .card:hover {
-    box-shadow: 0px 0px 25px 5px var(--rm-main-pink);
+    box-shadow: 0px 0px 10px 4px var(--rm-main-pink);
+}
+
+.reviews:hover {
+    box-shadow: 0px 0px 10px 4px var(--rm-main-green);
+}
+
+.reviews #tagArea {
+    background-color: var(--rm-main-green);
+}
+
+.features:hover {
+    box-shadow: 0px 0px 10px 4px var(--rm-main-yellow);
+}
+
+.features #tagArea {
+    background-color: var(--rm-main-yellow);
+}
+
+.interviews:hover {
+    box-shadow: 0px 0px 10px 4px var(--rm-main-blue);
+}
+
+.interviews #tagArea {
+    background-color: var(--rm-main-blue);
+}
+
+.premiers:hover {
+    box-shadow: 0px 0px 10px 4px var(--rm-main-pink);
+}
+
+.premiers #tagArea {
+    background-color: var(--rm-main-pink);
+}
+
+#tagArea {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 14px;
+    display: inline-block;
 }
