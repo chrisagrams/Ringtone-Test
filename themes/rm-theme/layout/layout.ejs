@@ -2,15 +2,20 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Document</title>
-		<link rel="stylesheet" href="styles.css">
+		<title>Ringtone Magazine</title>
+		<link rel="stylesheet" href="/styles.css">
+		<link rel="stylesheet" href="/card.css">
+		<link rel="icon" type="image/png" href="/favicon.png"/>
+
 	</head>
-	<body onresize="adjustSize()">
+	<body>
 		<canvas class="pinkGlow" id="topMarquess" height="32"></canvas>
+
+
 		<div id="topHeader">
 
 			<div class="dropdown">
-				<button class="dropbtn">Stories</button>
+				<button class="dropbtn">STORIES</button>
 				<div class="dropdown-content">
 					<a href="#">Features</a>
 					<a href="#">Reviews</a>
@@ -19,12 +24,12 @@
 				</div>
 			</div>
 
-			<button class="headerButton">About</button>
+			<button class="headerButton">ABOUT</button>
 
-			<img src="img/Logo_3D_800.png" id="largeLogo" class="center">
+			<img src="/img/Logo_3D_800.png" id="largeLogo" class="center">
 
 			<div class="dropdown">
-				<button class="dropbtn">Contact</button>
+				<button class="dropbtn">CONTACT</button>
 				<div class="dropdown-content">
 					<a href="#">Join the Team</a>
 					<a href="#">Submit Music</a>
@@ -32,10 +37,79 @@
 				</div>
 			</div>
 
-			<button class="headerButton">Shop</button>
+			<button class="headerButton">SHOP</button>
 
 		</div>
+
+		<div id="permTopHeader" class="yellowGlow">
+			<div class="dropdown">
+				<button class="dropbtn">STORIES</button>
+				<div class="dropdown-content">
+					<a href="#">Features</a>
+					<a href="#">Reviews</a>
+					<a href="#">Interviews</a>
+					<a href="#">Premieres</a>
+				</div>
+			</div>
+
+			<button class="headerButton">ABOUT</button>
+
+			<img src="/img/Logo_Flat_Pink.png">
+
+			<div class="dropdown">
+				<button class="dropbtn">CONTACT</button>
+				<div class="dropdown-content">
+					<a href="#">Join the Team</a>
+					<a href="#">Submit Music</a>
+					<a href="#">Contact Us</a>
+				</div>
+			</div>
+
+			<button class="headerButton">SHOP</button>
+
+		</div>
+
 		<%- body %>
+
+		<div id="bottomNavbar" class="pinkGlow">
+			<div style="margin-top: 25px; margin-left: 25%;">
+				<div class="text2" style="margin-bottom: 15px; margin-top: 15px;">@RingtoneMag</div>
+				<div class="grid-container">
+					<div class="grid-item icon tooltip">
+						<span class="tooltiptext">Go to Insta</span>
+						<img src="/icons/simple-instagram.svg" alt="Instagram" onclick="window.open('https://www.instagram.com/ringtonemag/')">
+					</div>
+					<div class="grid-item icon tooltip" style="grid-column-start: 2">
+						<span class="tooltiptext">Go to Twitter</span>
+						<img src="/icons/simple-twitter.svg" alt="Twitter" onclick="window.open('https://twitter.com/ringtonemag')">
+					</div>
+					<div class="grid-item icon tooltip" style="grid-column-start: 3">
+						<span class="tooltiptext">Go to Facebook</span>
+						<img src="/icons/simple-facebook.svg" alt="Facebook" onclick="window.open('https://www.facebook.com/ringtonemag/')">
+					</div>
+					<div class="grid-item icon tooltip">
+						<span class="tooltiptext">Go to Spotify</span>
+						<img src="/icons/simple-spotify.svg" alt="Spotify" onclick="window.open('https://open.spotify.com/user/h59hazuxkhppm8105su1zp8mw')">
+					</div>
+					<div class="grid-item icon tooltip">
+						<span class="tooltiptext">Go to TikTok</span>
+						<img src="/icons/simple-tiktok.svg" alt="TikTok" onclick="window.open('https://www.tiktok.com/@ringtonemag?lang=en')">
+					</div>
+				</div>
+			</div>
+			<div style="margin-left: 50%">
+				<div class="text2">Quick Links
+					<div class="text3">Home</div>
+				</div>
+
+			</div>
+
+
+			<div id="copyright" class="centeredContent">
+				© 2020 Ringtone Mag
+			</div>
+
+		</div>
 	</body>
 
 	<script>
@@ -109,29 +183,14 @@
 			console.log("text size: " + textSize);
 			console.log(Math.ceil(window.innerWidth/(textSize+padding)));
 			initItems();
-
-			// ctx.fillText("Test", x,7);
-			// window.requestAnimationFrame(drawMarq);
 			window.requestAnimationFrame(updateItems);
 		}
 
-		let drawMarq = () => {
-			// ctx.clearRect(0,0, canvas.width, canvas.height);
-			// ctx.color = "#000000";
-			ctx.font = "18px SpaceGrotesk";
-
-			ctx.fillStyle = getComputedStyle(document.querySelector(":root")).getPropertyValue("--rm-main-blue");
-			ctx.fillText(text, x, yOffset);
-			if(x != ctx.canvas.width)
-				x++;
-			else
-				x = 0;
-			// ctx.canvas.width = window.innerWidth;
-			window.requestAnimationFrame(adjustSize);
-			window.requestAnimationFrame(drawMarq);
-		}
 		let adjustSize = () => {
-			ctx.canvas.width = window.innerWidth;
+			// ctx.canvas.width = window.innerWidth;
+			canvas.width = window.innerWidth;
+			// canvas.width = canvas.getBoundingClientRect().width;
+			// ctx.canvas.style.height = "32px";
 		}
 		init();
 

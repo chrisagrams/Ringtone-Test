@@ -1,1 +1,22 @@
-This is the index.ejs
+<% page.posts.each((post) => { %>
+    <div class="card" onclick="location.href='<%- url_for(post.path) %>'">
+        <img src="<%- url_for(post.path) %>0.jpg" style="width:450px; height: 210px">
+        <h1>
+                <%= post.title %>
+        </h1>
+
+
+        <div class="post-content-preview">
+            <%- truncate(strip_html(post.content), {length: 200, omission: '...'}) %>
+        </div>
+        <div class="chin">
+            <span id="author">
+                <%- post.author%>
+            </span>
+            <span id="date">
+                <%= date(post.date, config.date_format) %>
+            </span>
+        </div>
+
+    </div>
+<% }); %>

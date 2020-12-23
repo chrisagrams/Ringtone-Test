@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ringtone Magazine</title>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="icon" type="image/png" href="/favicon.png"/>
+
+    </head>
+    <body>
+        <div class='container blog-post'>
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <a href='/' class="btn btn-yellow btn-circle" style='color:grey;'>
+                        <i class="fa fa-home fa-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class='row'>
+                <h1 class='author-name'><%- page.title %></h1>
+                <%= date(page.date, config.date_format) %>
+                <hr />
+                <%- page.content %>
+            </div>
+        </div>
+    </body>
+</html>
