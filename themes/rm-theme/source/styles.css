@@ -1,12 +1,17 @@
 /* --- fonts --- */
 @font-face {
     font-family: SpaceGrotesk;
-    src: url(fonts/SpaceGrotesk-Regular.ttf);
+    src: url(/fonts/SpaceGrotesk-Regular.ttf);
 }
 
 @font-face {
     font-family: SpaceGrotesk-Bold;
-    src: url(fonts/SpaceGrotesk-Bold.ttf);
+    src: url(/fonts/SpaceGrotesk-Bold.ttf);
+}
+
+@font-face {
+    font-family: NunitoSans-SemiBold;
+    src: url(/fonts/NunitoSans-SemiBold.ttf);
 }
 /* --- end fonts --- */
 

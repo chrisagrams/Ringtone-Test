@@ -1,5 +1,20 @@
+<div class="splide pinkGlow">
+    <div class="splide__track">
+        <ul class="splide__list">
+            <% page.posts.each((post) => { %>
+                <li class="splide__slide" style="position: relative">
+                    <div class="ul-item" id="date"> <%= date(post.date, 'MMMM Do, YYYY')%></div>
+                    <img id="post-image" src="<%- url_for(post.path) %>0.jpg">
+                    <div class="ul-item" id="name"><%= post.title %></div>
+                    <img class="ul-item" id="read-more" src="/img/Read-More.svg" onclick="location.href='<%- url_for(post.path) %>'">
+                </li>
+            <%});%>
+        </ul>
+    </div>
+</div>
+
 <% page.posts.each((post) => { %>
-    <div class="card
+    <div class="rm-card
     <%
         post.tags.forEach(function (tag) {
             switch (tag.name){
@@ -18,7 +33,7 @@
         %>
         <% }})
         %>" onclick="location.href='<%- url_for(post.path) %>'">
-        <img src="<%- url_for(post.path) %>0.jpg" style="width:450px; height: 210px">
+        <img src="<%- url_for(post.path) %>0.jpg" style="width:450px; height: 210px; object-fit: cover;">
 
         <div id="tagArea">
             <% post.tags.forEach(function (tag) {
